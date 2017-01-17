@@ -91,7 +91,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func keyboardWillShow(_ notification:Notification) {
         if bottomText.isFirstResponder {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = getKeyboardHeight(notification) * (-1)
         }
     }
     
@@ -108,10 +108,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // FINISH - KEYBOARD ADJUSTMENT -----------
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         shareButton.isEnabled = imagePickerView.image != nil
         tabBarController?.hidesBottomBarWhenPushed = true
-        super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
     }
     

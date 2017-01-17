@@ -123,19 +123,19 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        topText.defaultTextAttributes = memeTextAttributes
-        topText.borderStyle = UITextBorderStyle.none
+        configureTextFields(textField: topText)
+        configureTextFields(textField: bottomText)
+        
         topText.text = "TOP"
-        topText.textAlignment = .center
-        topText.delegate = self
-        
-        bottomText.defaultTextAttributes = memeTextAttributes
-        bottomText.borderStyle = UITextBorderStyle.none
         bottomText.text = "BOTTOM"
-        bottomText.textAlignment = .center
-        bottomText.delegate = self
         
-        
+    }
+    
+    func configureTextFields(textField: UITextField) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.borderStyle = UITextBorderStyle.none
+        textField.textAlignment = .center
+        textField.delegate = self
     }
     
     
